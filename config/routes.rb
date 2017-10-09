@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root "static_pages#home"
 
   get "/help", to: "static_pages#help"
@@ -11,11 +12,12 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
-  get "/logout", to: "sessions#destroy"
+  delete "/logout", to: "sessions#destroy"
 
   get  "/signup",  to: "users#new"
 
   post "/signup",  to: "users#create"
 
   resources :users
+  resources :courses, only: %i(index)
 end

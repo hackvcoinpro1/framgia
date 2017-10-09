@@ -28,16 +28,42 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
   layouts:
     application:
-      title: "Tms701"
+      title: "Framgia Training System"
+    _header:
+      home: "Home"
+      help: "Help"
+      login: "Log in"
+      fts: "Framgia Training System"
+      users: "Users"
+      profile: "Profile"
+      setting: "Settings"
+      logout: "Log out"
+      account: "Account"
+    _footer:
+      text1: "The "
+      link1: "Ruby on Rails Tutorial"
+      text2: "by "
+      link2: "Michael Hartl"
+      link3: "News"
+      about: "About"
+      contact: "Contact"
+  courses:
+    index:
+      h1: "List Courses"
+      title: "Course"
   static_pages:
     home:
-      h1: "StaticPages#home"
-      p: "Find me in app/views/static_pages/home.html.erb"
+      h1: "Hello"
+      p: "Welcome to our page"
+      title: "Home"
+      hello: "Welcome to Framgia Training System"
+      intro: "This is the home page for the"
+      link: "Framgia Training System"
+      outtro: " website."
+      login: "Login System"
     help:
       h1: "StaticPages#help"
       p: "Find me in app/views/static_pages/help.html.erb"
