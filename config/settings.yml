@@ -1,0 +1,15 @@
+user:
+  name:
+    maximum_length: 50
+  email:
+    maximum_length: 50
+  password:
+    minimum_length: 6
+  reset:
+    pass_word: 2
+sessions:
+  check: "1"
+gravatar:
+  size_option: 60
+per_page:
+  config: 4
