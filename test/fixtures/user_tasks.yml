@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  date_receive: 2017-10-09 12:56:46
+  date_finish: 2017-10-09 12:56:46
+  user: one
+  task: one
+
+two:
+  status: 1
+  date_receive: 2017-10-09 12:56:46
+  date_finish: 2017-10-09 12:56:46
+  user: two
+  task: two
