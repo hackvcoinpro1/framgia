@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  date_start: 2017-10-09
+  date_end: 2017-10-09
+  course: one
+  subject: one
+
+two:
+  status: 1
+  date_start: 2017-10-09
+  date_end: 2017-10-09
+  course: two
+  subject: two
