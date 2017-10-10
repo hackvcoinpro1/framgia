@@ -54,6 +54,12 @@ en:
     index:
       h1: "List Courses"
       title: "Course"
+    show:
+      desc: "Description of Course: "
+      created: "Created at: "
+      subjects: "Subjects"
+      trainees: "Trainees"
+      trainers: "Trainers"
   static_pages:
     home:
       h1: "Hello"
@@ -64,6 +70,7 @@ en:
       link: "Framgia Training System"
       outtro: " website."
       login: "Login System"
+      course: "Manage Courses - Suppervisor"
     help:
       h1: "StaticPages#help"
       p: "Find me in app/views/static_pages/help.html.erb"
@@ -90,3 +97,6 @@ en:
   shared:
     _error_messages:
       error: "The form contains"
+  controllers:
+    courses:
+      flash_danger: "Course not found!"
