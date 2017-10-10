@@ -41,6 +41,8 @@ module SessionsHelper
     current_user.present?
   end
 
+  delegate :suppervisor, to: :current_user
+
   def redirect_back_or default
     redirect_to session[:forwarding_url] || default
     session.delete :forwarding_url
