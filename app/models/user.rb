@@ -24,9 +24,13 @@ class User < ApplicationRecord
     end
   end
 
+  def create_password_default
+    self.password_digest = User.digest Settings.user.password.default_password
+  end
+
   def remember
     self.remember_token = User.new_token
-    update_attributes(remember_digest: User.digest(remember_token))
+    update_attributes remember_digest: User.digest(remember_token)
   end
 
   def forget

@@ -4,6 +4,7 @@ user:
   email:
     maximum_length: 50
   password:
+    default_password: "123456"
     minimum_length: 6
   reset:
     pass_word: 2

@@ -80,6 +80,12 @@ en:
       singupnow: "Sign up now!"
       btn_signup: "Sign up"
       h1: "Sign up"
+      success: "Sign up success , password default is 123456"
+    load_user:
+      error: "Sorry, user id does not exist"
+    destroy:
+      delete_success: "User deleted"
+      delete_error: "Delete error."
   sessions:
     login:
       title: ""
@@ -87,6 +93,10 @@ en:
       remember: "Remember me on this computer"
       btn_login: "Log in"
       login_fail: "Invalid email/password combination"
+      please_login: "Please login"
   shared:
     _error_messages:
       error: "The form contains"
+  controllers:
+    courses:
+      flash_danger: "Course not found!"
