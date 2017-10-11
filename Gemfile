@@ -19,6 +19,8 @@ gem "will_paginate", "3.1.5"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "jquery-rails"
 gem "bootstrap-sass", "3.3.7"
+gem "carrierwave"
+gem "mini_magick"
 group :development, :test do
   gem "mysql2", ">= 0.3.18", "< 0.5"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

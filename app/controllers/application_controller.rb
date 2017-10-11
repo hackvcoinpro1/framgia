@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
     flash[:warning] = t "users.load_user.error"
     redirect_to users_path
   end
+
+  def correct_user
+    redirect_to(root_url) unless current_user? @user
+  end
 end
