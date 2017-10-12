@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :user_course
+  has_many :user_courses, dependent: :destroy
+  has_many :courses, through: :user_courses
   has_many :user_subject
   has_many :user_task
   attr_accessor :remember_token
@@ -16,6 +17,7 @@ class User < ApplicationRecord
 
   scope :alphabet_name, ->{order :name}
   scope :without_suppervisor, ->{where suppervisor: nil}
+  scope :with_suppervisor, ->{where suppervisor: true}
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

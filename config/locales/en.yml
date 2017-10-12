@@ -54,12 +54,20 @@ en:
     index:
       h1: "List Courses"
       title: "Course"
+      add_btn: "Create new course"
     show:
       desc: "Description of Course: "
       created: "Created at: "
       subjects: "Subject of this course"
       trainees: "Trainees of this Course"
       trainers: "Trainers of this Course"
+    new:
+      title: "Create new course"
+      h1: "Input new course"
+      btn: "Create"
+    course:
+      confirm: "Delete ?"
+      delete: "Delete"
   static_pages:
     home:
       h1: "Hello"
@@ -118,3 +126,6 @@ en:
   controllers:
     courses:
       flash_danger: "Course not found!"
+      flash_success_create: "Successful!"
+      flash_danger_destroy: "Delete is rollback"
+      flash_success_destroy: "Deleted Successful!"

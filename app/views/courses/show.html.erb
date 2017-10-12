@@ -16,10 +16,16 @@
       </ul>
     </td>
     <td>
-      <li><%= link_to t("courses.show.trainees"), "#" %></li>
+      <ul class="ls-sub">
+        <%= render @trainees %>
+        <%= will_paginate @trainees %>
+      </ul>
     </td>
     <td>
-      <li><%= link_to t("courses.show.trainers"), "#" %></li>
+      <ul class="ls-sub">
+        <%= render @trainers %>
+        <%= will_paginate @trainers %>
+      </ul>
     </td>
   </table>
 </div>
