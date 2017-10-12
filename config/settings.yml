@@ -8,6 +8,8 @@ user:
     minimum_length: 6
   reset:
     pass_word: 2
+  avatar:
+    size_default: "80x80"
 sessions:
   check: "1"
 per_page:

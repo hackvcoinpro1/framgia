@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= render "suppervisor/layouts/rails_default" %>
+    <%= render "suppervisor/layouts/shim" %>
+  </head>
+  <body>
+    <%= render "suppervisor/layouts/header" %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= render "suppervisor/layouts/footer" %>
+    </div>
+  </body>
+</html>

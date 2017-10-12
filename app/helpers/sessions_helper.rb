@@ -44,7 +44,12 @@ module SessionsHelper
   delegate :suppervisor, to: :current_user
 
   def redirect_back_or default
-    redirect_to session[:forwarding_url] || default
+    redirect_url = root_path
+    unless default.nil?
+      redirect_url = users_path
+      redirect_url = suppervisor_users_path if default.suppervisor?
+    end
+    redirect_to session[:forwarding_url] || redirect_url
     session.delete :forwarding_url
   end
 

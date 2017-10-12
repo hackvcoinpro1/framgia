@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   scope :alphabet_name, ->{order :name}
   scope :without_suppervisor, ->{where suppervisor: nil}
+  scope :with_suppervisor, ->{where suppervisor: true}
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

@@ -1,0 +1,16 @@
+<% provide :title, t("users.index.title_all_users") %>
+<h1><%= t "users.index.h1__all_users" %></h1>
+<div class="row col-md-2" align="center">
+  <%= button_to t("users.signup.newuser"), new_suppervisor_user_path, class: "btn btn-primary", method: :get %>
+</div>
+<div class="row">
+  <table class="table_custom">
+    <tr class="row_custom header">
+      <% displayed_column_for_suppervisor.each do |item| %>
+        <th class="cell_custom"><%= item.capitalize %></th>
+      <% end %>
+    </tr>
+    <%= render partial: "user", collection: @users, as: :user%>
+  </table>
+  <%= will_paginate @users %>
+</div>
