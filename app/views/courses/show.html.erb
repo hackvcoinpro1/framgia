@@ -3,7 +3,23 @@
   <h1><%= @course.name %></h1>
   <h2><%= t("courses.show.desc") %><%= @course.description %></h2>
   <h2><%= t("courses.show.created") %><%= @course.created_at %></h2>
-  <li><%= link_to t("courses.showcourses.show.subjects"), "#" %></li>
-  <li><%= link_to t("courses.show.trainees"), "#" %></li>
-  <li><%= link_to t("courses.show.trainers"), "#" %></li>
+  <table>
+    <thead>
+      <th><%= t "courses.show.subjects" %></th>
+      <th><%= t "courses.show.trainees" %></th>
+      <th><%= t "courses.show.trainers" %></th>
+    </thead>
+    <td>
+      <ul class="ls-sub">
+        <%= render @subjects %>
+        <%= will_paginate @subjects %>
+      </ul>
+    </td>
+    <td>
+      <li><%= link_to t("courses.show.trainees"), "#" %></li>
+    </td>
+    <td>
+      <li><%= link_to t("courses.show.trainers"), "#" %></li>
+    </td>
+  </table>
 </div>

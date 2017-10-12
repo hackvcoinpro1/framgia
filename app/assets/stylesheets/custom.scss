@@ -36,6 +36,15 @@ textarea {
   margin-bottom: 10px;
 }
 
+.ls-all {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-light;
+  }
+}
 
 /* typography */
 
@@ -109,8 +118,7 @@ footer {
 }
 
 /* Course index */
-
-.course {
+.ls-sub {
   list-style: none;
   margin: 0;
   li {
@@ -119,3 +127,13 @@ footer {
     border-bottom: 1px solid $gray-light;
   }
 }
+table {
+  width: 100%;
+}
+th {
+  text-align: center;
+}
+td {
+  width: 33.3333%;
+}
+

@@ -57,9 +57,9 @@ en:
     show:
       desc: "Description of Course: "
       created: "Created at: "
-      subjects: "Subjects"
-      trainees: "Trainees"
-      trainers: "Trainers"
+      subjects: "Subject of this course"
+      trainees: "Trainees of this Course"
+      trainers: "Trainers of this Course"
   static_pages:
     home:
       h1: "Hello"
