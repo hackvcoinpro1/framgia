@@ -1,0 +1,5 @@
+<li>
+  <%= image_tag user.avatar.url %>
+  <%= link_to user.name, user %>
+  <%= link_to t("users.edit.view_profile"), edit_user_path(user) %>
+</li>

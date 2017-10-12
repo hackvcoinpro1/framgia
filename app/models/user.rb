@@ -12,7 +12,10 @@ class User < ApplicationRecord
   uniqueness: {case_sensitive: false}
   has_secure_password
   validates :password, presence: true, length: {minimum: Settings.user.password.minimum_length}, allow_nil: true
+  mount_uploader :avatar, AvatarUploader
 
+  scope :alphabet_name, ->{order :name}
+  scope :without_suppervisor, ->{where suppervisor: nil}
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

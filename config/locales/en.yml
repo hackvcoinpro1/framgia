@@ -93,6 +93,16 @@ en:
     destroy:
       delete_success: "User deleted"
       delete_error: "Delete error."
+    edit:
+      title: "Edit user"
+      btn_update: "Save changes"
+      h1_update: "Update your profile"
+      update_success: "Profile updated"
+      update_fail: "Update fails !"
+      view_profile: "View Profile"
+    index:
+      title: "All users"
+      h1: "All users"
   sessions:
     login:
       title: ""
@@ -104,6 +114,7 @@ en:
   shared:
     _error_messages:
       error: "The form contains"
+      error_text: "errors"
   controllers:
     courses:
       flash_danger: "Course not found!"
