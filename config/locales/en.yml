@@ -90,17 +90,19 @@ en:
       p: "Find me in app/views/static_pages/about.html.erb"
   users:
     signup:
-      title: "Sign up"
-      newuser: "New user?"
+      title: "Add new user"
+      newuser: "New user"
       singupnow: "Sign up now!"
-      btn_signup: "Sign up"
-      h1: "Sign up"
+      btn_signup: "Add user"
+      h1: "Add new User"
       success: "Sign up success , password default is 123456"
     load_user:
       error: "Sorry, user id does not exist"
     destroy:
       delete_success: "User deleted"
       delete_error: "Delete error."
+      delete_link: "delete"
+      confirm: "You sure?"
     edit:
       title: "Edit user"
       btn_update: "Save changes"
@@ -109,11 +111,13 @@ en:
       update_fail: "Update fails !"
       view_profile: "View Profile"
     index:
-      title: "All users"
-      h1: "All users"
+      title_all_users: "All users"
+      h1__all_users: "All users"
+      title_all_trainees: "All trainees"
+      h1_all_trainees: "All trainees"
   sessions:
     login:
-      title: ""
+      title: "Log in"
       h1: "Log in"
       remember: "Remember me on this computer"
       btn_login: "Log in"

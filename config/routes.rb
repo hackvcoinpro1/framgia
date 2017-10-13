@@ -14,14 +14,10 @@ Rails.application.routes.draw do
 
   delete "/logout", to: "sessions#destroy"
 
-  get  "/signup",  to: "users#new"
-
-  post "/signup",  to: "users#create"
-
   resources :users, except: [:create, :destroy, :new]
 
   namespace :suppervisor do
-    resources :users, only: [:create, :destroy, :new]
+    resources :users
   end
 
   resources :courses

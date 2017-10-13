@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def show; end
 
   def index
-    @users = User.without_suppervisor.alphabet_name.paginate(page: params[:page], per_page: Settings.per_page.config)
+    @users = User.without_suppervisor.alphabet_name.paginate page: params[:page],
+      per_page: Settings.per_page.config
   end
 
   def edit; end
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar
+    params.require(:user).permit :name, :email, :password, :password_confirmation,
+      :avatar
   end
 end

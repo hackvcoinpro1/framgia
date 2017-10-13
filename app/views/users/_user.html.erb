@@ -1,5 +1,10 @@
-<li>
-  <%= image_tag user.avatar.url %>
-  <%= link_to user.name, user %>
-  <%= link_to t("users.edit.view_profile"), edit_user_path(user) %>
-</li>
+<tr class="row_custom">
+  <td class="cell_custom"><%= link_to user.name, user %></td>
+  <td class="cell_custom"><%= user.email %></td>
+  <td class="cell_custom"><%= user.university %></td>
+  <td class="cell_custom"><%= user.organization %></td>
+  <td class="cell_custom"><%= user.program %></td>
+  <td class="cell_custom">
+    <%= link_to t("users.edit.view_profile"), edit_user_path(user) %>
+  </td>
+</tr>
