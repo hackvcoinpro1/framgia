@@ -24,6 +24,5 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :destroy, :new]
   end
 
-  resources :courses, only: %i(index show)
-
+  resources :courses
 end

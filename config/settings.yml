@@ -11,4 +11,4 @@ user:
 sessions:
   check: "1"
 per_page:
-  config: 4
+  config: 8
