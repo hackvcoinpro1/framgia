@@ -7,6 +7,8 @@ class CoursesController < ApplicationController
   def show
     load_subjects @course
     load_trainers_trainees @course
+    @all_subjects = Subject.all
+    @all_subjects = @all_subjects.find_subjects_not_in_course @course if @subjects.present?
   end
 
   def new
