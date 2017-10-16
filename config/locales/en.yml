@@ -61,6 +61,7 @@ en:
       subjects: "Subject of this course"
       trainees: "Trainees of this Course"
       trainers: "Trainers of this Course"
+      another_sb: "Another Subjects"
     new:
       title: "Create new course"
       h1: "Input new course"
@@ -68,6 +69,10 @@ en:
     course:
       confirm: "Delete ?"
       delete: "Delete"
+    _added:
+      remove: "Remove"
+    _adding:
+      add: "Add to Course"
   static_pages:
     home:
       h1: "Hello"
@@ -133,3 +138,5 @@ en:
       flash_success_create: "Successful!"
       flash_danger_destroy: "Delete is rollback"
       flash_success_destroy: "Deleted Successful!"
+    course_subjects:
+      flash_danger: "Can't find"

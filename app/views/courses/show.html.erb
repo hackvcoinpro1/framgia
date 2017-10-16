@@ -11,19 +11,26 @@
     </thead>
     <td>
       <ul class="ls-sub">
-        <%= render @subjects %>
+        <%= render partial: "subjects_added", collection: @subjects, as: :subject %>
         <%= will_paginate @subjects %>
       </ul>
+      <% if @all_subjects.present? %>
+        <ul class="ls-sub">
+          <p><%= t ".another_sb" %></p>
+          <%= render partial: "subjects_adding", collection: @all_subjects,
+            as: :subject %>
+        </ul>
+      <% end %>
     </td>
     <td>
       <ul class="ls-sub">
-        <%= render @trainees %>
+        <%= render partial: "user", collection: @trainees, as: :user %>
         <%= will_paginate @trainees %>
       </ul>
     </td>
     <td>
       <ul class="ls-sub">
-        <%= render @trainers %>
+        <%= render partial: "user", collection: @trainers, as: :user %>
         <%= will_paginate @trainers %>
       </ul>
     </td>
