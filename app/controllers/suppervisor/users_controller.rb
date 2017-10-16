@@ -49,6 +49,7 @@ class Suppervisor::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit :name, :email, :university, :organization, :program
+    params.require(:user).permit :name, :email, :password, :password_confirmation,
+      :university, :organization, :program, :avatar
   end
 end

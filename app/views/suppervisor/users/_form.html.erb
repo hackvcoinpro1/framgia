@@ -1,10 +1,10 @@
 <%= form_for [:suppervisor, @user] do |f| %>
   <%= render "shared/error_messages", object: @user %>
 
-  <%= f.label :name %>
+  <%= f.label :name %> (*)
   <%= f.text_field :name, class: "form-control" %>
 
-  <%= f.label :email %>
+  <%= f.label :email %> (*)
   <%= f.email_field :email, class: "form-control" %>
 
   <%= f.label :university %>
@@ -15,6 +15,9 @@
 
   <%= f.label :program %>
   <%= f.text_field :program, class: "form-control" %>
+
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar, class: "form-control" %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

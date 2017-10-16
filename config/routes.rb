@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :users, except: [:create, :destroy, :new]
+ 
+  resources :subjects, except: [:create, :destroy, :new]
 
   namespace :suppervisor do
     resources :users
+    resources :subjects
   end
 
   resources :courses

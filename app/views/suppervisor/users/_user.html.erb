@@ -1,5 +1,5 @@
 <tr class="row_custom">
-  <td class="cell_custom"><%= link_to user.name, suppervisor_user_path(user) %></td>
+  <td class="cell_custom"><%= user.name %></td>
   <td class="cell_custom"><%= user.email %></td>
   <td class="cell_custom"><%= user.date_start %></td>
   <td class="cell_custom"><%= user.university %></td>
@@ -7,7 +7,7 @@
   <td class="cell_custom"><%= user.program %></td>
   <td class="cell_custom"><%= user.suppervisor %></td>
   <td class="cell_custom">
-    <%= link_to t("users.edit.view_profile"), edit_suppervisor_user_path(user) %>
+    <%= link_to t("users.edit.view_profile"), suppervisor_user_path(user) %>
     <% unless current_user? user %>
       | <%= link_to t("users.destroy.delete_link"), [:suppervisor, user], method: :delete,
           data: { confirm: t("users.destroy.confirm") } %>
