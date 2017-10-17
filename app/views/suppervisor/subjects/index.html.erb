@@ -1,0 +1,15 @@
+<% provide :title, t("subjects.index.title") %>
+<h1><%= t "subjects.index.h1" %></h1>
+<div class="row col-md-2" align="center">
+</div>
+<div class="row">
+  <table class="table_custom">
+    <tr class="row_custom header">
+      <% subject_column_for_suppervisor.each do |item| %>
+        <th class="cell_custom"><%= item.capitalize %></th>
+      <% end %>
+    </tr>
+    <%= render partial: "subject", collection: @subjects, as: :subject%>
+  </table>
+  <%= will_paginate @subjects %>
+</div>

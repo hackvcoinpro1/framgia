@@ -42,6 +42,7 @@ en:
       setting: "Settings"
       logout: "Log out"
       account: "Account"
+      suppervisor: "Suppervisor"
     _footer:
       text1: "The "
       link1: "Ruby on Rails Tutorial"
@@ -50,6 +51,17 @@ en:
       link3: "News"
       about: "About"
       contact: "Contact"
+  subjects:
+    index:
+      h1: "List Subjects"
+      title: "Subjects"
+    edit:
+      edit_subject: "Edit subject"
+    destroy:
+      delete_success: "Subject deleted"
+      delete_error: "Delete error."
+      delete_link: "delete"
+      confirm: "You sure?"
   courses:
     index:
       h1: "List Courses"
@@ -111,15 +123,30 @@ en:
     edit:
       title: "Edit user"
       btn_update: "Save changes"
-      h1_update: "Update your profile"
+      h1_update: "Update profile"
       update_success: "Profile updated"
       update_fail: "Update fails !"
       view_profile: "View Profile"
+      btn_edit: "Edit"
     index:
       title_all_users: "All users"
       h1__all_users: "All users"
       title_all_trainees: "All trainees"
       h1_all_trainees: "All trainees"
+    profile:
+      name: "Name"
+      email: "Email"
+      university: "University"
+      organization: "Organization"
+      program: "Program"
+      date_start: "Date start"
+      about_me: "About Me"
+      education: "Education"
+      timeline: "Timeline"
+      activity: "Activity"
+      progress: "Progress"
+      profile: "Profile"
+      notes: "Notes"
   sessions:
     login:
       title: "Log in"
