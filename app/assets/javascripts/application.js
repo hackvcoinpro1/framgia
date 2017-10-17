@@ -15,4 +15,5 @@
 //= require rails-ujs
 //= require turbolinks
 //= require app.min
+//= require model
 //= require_tree .

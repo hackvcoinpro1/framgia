@@ -16,4 +16,8 @@ module UsersHelper
          reset_digest reset_send_at remember_digest gender) +
       %w(action)
   end
+
+  def total_member trainers, trainees
+    trainers.size + trainees.size
+  end
 end
