@@ -8,5 +8,5 @@ class Subject < ApplicationRecord
   has_many :user_subject
 
   default_scope ->{order(created_at: :desc)}
-  scope :find_subjects_not_in_course, ->(course){where("id NOT IN (?)", course.subject_ids)}
+  scope :without_course, ->(course){where.not id: course.subject_ids}
 end

@@ -1,14 +1,15 @@
 class CoursesController < ApplicationController
-  before_action :load_course, only: %i(show destroy)
+  before_action :logged_in_user
+  before_action :verify_suppervisor, except: %i(show index)
+  before_action :load_course, except: %i(new create index)
   def index
     @courses = Course.paginate(page: params[:page], per_page: Settings.per_page.config)
   end
 
   def show
     load_subjects @course
-    load_trainers_trainees @course
-    @all_subjects = Subject.all
-    @all_subjects = @all_subjects.find_subjects_not_in_course @course if @subjects.present?
+    load_trainees @course
+    load_trainers @course
   end
 
   def new
@@ -35,15 +36,40 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
-  def load_subjects course
-    @subjects = course.subjects.paginate(page: params[:page], per_page: Settings.per_page.config)
+  def edit
+    load_subjects @course
+    load_trainees @course
+    load_trainers @course
   end
 
-  def load_trainers_trainees course
+  def update
+    if @course.update_attributes course_params
+      flash[:success] = t "controllers.courses.flash_success_update"
+      redirect_to courses_path
+    else
+      flash[:danger] = t "controllers.courses.flash_danger_update"
+      render :edit
+    end
+  end
+
+  def load_subjects course
+    @subjects = course.subjects.paginate(page: params[:page], per_page: Settings.per_page.config)
+    @all_subjects = Subject.all
+    @all_subjects = @all_subjects.without_course course if @subjects.present?
+  end
+
+  def load_trainers course
     @trainers = course.users.with_suppervisor.alphabet_name.paginate(page: params[:page],
       per_page: Settings.per_page.config)
+    @all_trainers = User.with_suppervisor.alphabet_name
+    @all_trainers = @all_trainers.without_course course if @trainers.present?
+  end
+
+  def load_trainees course
     @trainees = course.users.without_suppervisor.alphabet_name.paginate(page: params[:page],
       per_page: Settings.per_page.config)
+    @all_trainees = User.without_suppervisor.alphabet_name
+    @all_trainees = @all_trainees.without_course course if @trainees.present?
   end
 
   private

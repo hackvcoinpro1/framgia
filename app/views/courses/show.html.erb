@@ -3,7 +3,7 @@
   <h1><%= @course.name %></h1>
   <h2><%= t("courses.show.desc") %><%= @course.description %></h2>
   <h2><%= t("courses.show.created") %><%= @course.created_at %></h2>
-  <table>
+  <table class="dtls-c">
     <thead>
       <th><%= t "courses.show.subjects" %></th>
       <th><%= t "courses.show.trainees" %></th>
@@ -11,16 +11,9 @@
     </thead>
     <td>
       <ul class="ls-sub">
-        <%= render partial: "subjects_added", collection: @subjects, as: :subject %>
+        <%= render partial: "subject", collection: @subjects, as: :subject %>
         <%= will_paginate @subjects %>
       </ul>
-      <% if @all_subjects.present? %>
-        <ul class="ls-sub">
-          <p><%= t ".another_sb" %></p>
-          <%= render partial: "subjects_adding", collection: @all_subjects,
-            as: :subject %>
-        </ul>
-      <% end %>
     </td>
     <td>
       <ul class="ls-sub">
