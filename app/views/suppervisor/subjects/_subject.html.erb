@@ -2,7 +2,7 @@
   <td class="cell_custom"><%= subject.name %></td>
   <td class="cell_custom"><%= subject.description %></td>
   <td class="cell_custom">
-    <%= link_to t("subjects.edit.edit_subject"), "#" %>
+    <%= link_to t("subjects.edit.view_subject"), suppervisor_subject_path(subject) %>
     <% unless current_user? subject %>
       | <%= link_to t("subjects.destroy.delete_link"), "#",
           data: { confirm: t("subjects.destroy.confirm") } %>

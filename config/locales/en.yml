@@ -57,11 +57,14 @@ en:
       title: "Subjects"
     edit:
       edit_subject: "Edit subject"
+      view_subject: "View detail"
     destroy:
       delete_success: "Subject deleted"
       delete_error: "Delete error."
       delete_link: "delete"
       confirm: "You sure?"
+    show:
+      flash_danger: "Subject not found"
   courses:
     index:
       h1: "List Courses"
@@ -81,10 +84,19 @@ en:
     course:
       confirm: "Delete ?"
       delete: "Delete"
+      box_title: "Course"
     _added:
       remove: "Remove"
     _adding:
       add: "Add to Course"
+  tasks:
+    task:
+      text: "tasks"
+      box_title: "Tasks Overview"
+    new:
+      btn_add: "Add quick task"
+    destroy:
+      btn_delete: "delete task"
   static_pages:
     home:
       h1: "Hello"
@@ -147,6 +159,10 @@ en:
       progress: "Progress"
       profile: "Profile"
       notes: "Notes"
+    member:
+      member:  "Member"
+      trainees: "Trainees"
+      trainers: "Trainers"
   sessions:
     login:
       title: "Log in"

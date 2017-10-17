@@ -1,15 +1,24 @@
 <% provide :title, t("subjects.index.title") %>
 <h1><%= t "subjects.index.h1" %></h1>
-<div class="row col-md-2" align="center">
-</div>
 <div class="row">
-  <table class="table_custom">
-    <tr class="row_custom header">
-      <% subject_column_for_suppervisor.each do |item| %>
-        <th class="cell_custom"><%= item.capitalize %></th>
-      <% end %>
-    </tr>
-    <%= render partial: "subject", collection: @subjects, as: :subject%>
-  </table>
+ <div class="col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"></h3>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <% subject_column_for_suppervisor.each do |item| %>
+              <th class="cell_custom"><%= item.capitalize %></th>
+            <% end %>
+          </tr>
+          <%= render partial: "subject", collection: @subjects, as: :subject%>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <%= will_paginate @subjects %>
+</div>
 </div>
