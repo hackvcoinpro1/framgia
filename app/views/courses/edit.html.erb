@@ -1,0 +1,51 @@
+<% provide :title,  t(".title") %>
+<% provide :button_text, t(".btn") %>
+<h1><%= t ".h1" %><%=  @course.id  %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "form" %>
+  </div>
+</div>
+<table class="dtls-c">
+  <thead>
+    <th><%= t ".subjects" %></th>
+    <th><%= t ".trainees" %></th>
+    <th><%= t ".trainers" %></th>
+  </thead>
+  <td>
+    <ul class="ls-sub">
+      <%= render partial: "subjects_added", collection: @subjects, as: :subject %>
+    </ul>
+    <% if @all_subjects.present? %>
+      <ul class="ls-sub">
+        <p><%= t ".another_sb" %></p>
+        <%= render partial: "subjects_adding", collection: @all_subjects,
+          as: :subject %>
+      </ul>
+    <% end %>
+  </td>
+  <td>
+    <ul class="ls-sub">
+      <%= render partial: "users_added", collection: @trainees, as: :user %>
+      <% if @all_trainees.present? %>
+        <ul class="ls-sub">
+          <p><%= t ".another_trainer" %></p>
+          <%= render partial: "users_adding", collection: @all_trainees,
+            as: :user %>
+        </ul>
+      <% end %>
+    </ul>
+  </td>
+  <td>
+    <ul class="ls-sub">
+      <%= render partial: "users_added", collection: @trainers, as: :user %>
+      <% if @all_trainers.present? %>
+        <ul class="ls-sub">
+          <p><%= t ".another_trainee" %></p>
+          <%= render partial: "users_adding", collection: @all_trainers,
+            as: :user %>
+        </ul>
+      <% end %>
+    </ul>
+  </td>
+</table>

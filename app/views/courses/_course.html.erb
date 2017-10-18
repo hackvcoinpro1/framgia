@@ -2,6 +2,7 @@
   <%= link_to course.name, course %>
   <% if current_user.suppervisor %>
     | <%= link_to t(".delete"), course, method: :delete, data: { confirm: t(".confirm") } %>
+    | <%= link_to t(".edit"), edit_course_path(course) %>
   <% end %>
   <p><%= course.description %></p>
 </li>

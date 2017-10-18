@@ -1,10 +1,12 @@
 class CourseSubjectsController < ApplicationController
+  before_action :logged_in_user
+  before_action :verify_suppervisor
   before_action :check_params, only: %i(create destroy)
 
   def create
     @course.have @subject
     respond_to do |format|
-      format.html{redirect_to @course}
+      format.html{redirect_to edit_course_path(@course)}
       format.js
     end
   end
@@ -12,7 +14,7 @@ class CourseSubjectsController < ApplicationController
   def destroy
     @course.unhave @subject
     respond_to do |format|
-      format.html{redirect_to @course}
+      format.html{redirect_to edit_course_path(@course)}
       format.js
     end
   end

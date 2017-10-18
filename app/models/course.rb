@@ -4,6 +4,7 @@ class Course < ApplicationRecord
   has_many :subjects, through: :course_subjects
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses
+  has_many :having_user, through: :user_courses, source: :user
   default_scope ->{order(created_at: :desc)}
 
   def have subject
@@ -12,5 +13,13 @@ class Course < ApplicationRecord
 
   def unhave subject
     having.delete subject
+  end
+
+  def have_user user
+    having_user << user
+  end
+
+  def unhave_user user
+    having_user.delete user
   end
 end

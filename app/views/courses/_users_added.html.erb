@@ -1,0 +1,10 @@
+<li>
+  <%= image_tag user.avatar.url %>
+  <%= link_to user.name, "#" %>
+  <%= form_for (user_of_course @course, user) ,
+    html: { method: :delete } do |f| %>
+    <div><%= hidden_field_tag :user_id, user.id %></div>
+    <div><%= hidden_field_tag :course_id, @course.id %></div>
+    <%= f.submit t("courses._added.remove"), class: "btn btn-danger" %>
+  <% end %>
+</li>

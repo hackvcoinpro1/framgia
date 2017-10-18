@@ -81,10 +81,18 @@ en:
     course:
       confirm: "Delete ?"
       delete: "Delete"
+      edit: "Edit"
     _added:
       remove: "Remove"
     _adding:
       add: "Add to Course"
+    edit:
+      title: "Edit course"
+      btn: "Save"
+      h1: "Edit Course id:"
+      another_sb: "Another Subjects"
+      another_trainer: "Another Trainers"
+      another_trainee: "Another trainees"
   static_pages:
     home:
       h1: "Hello"
@@ -165,5 +173,10 @@ en:
       flash_success_create: "Successful!"
       flash_danger_destroy: "Delete is rollback"
       flash_success_destroy: "Deleted Successful!"
+      flash_success_update: "Update success"
+      flash_danger_update: "Update unsuccess"
     course_subjects:
       flash_danger: "Can't find"
+    user_courses:
+      flash_danger_create: "Add user unsuccess"
+      flash_danger_destroy: "Remove user unsuccess"
