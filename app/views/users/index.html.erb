@@ -1,13 +1,24 @@
 <% provide :title, t("users.index.title_all_trainees") %>
 <h1><%= t "users.index.h1_all_trainees" %></h1>
 <div class="row">
-  <table class="table_custom">
-    <tr class="row_custom header">
-      <% displayed_column_for_user.each do |item| %>
-        <th class="cell_custom"><%= item.capitalize %></th>
-      <% end %>
-    </tr>
-    <%= render partial: "user", collection: @users, as: :user%>
-  </table>
+ <div class="col-xs-12">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title"></h3>
+    </div>
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <% displayed_column_for_user.each do |item| %>
+              <th class="cell_custom"><%= item.capitalize %></th>
+            <% end %>
+          </tr>
+          <%= render partial: "user", collection: @users, as: :user%>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <%= will_paginate @users %>
+</div>
 </div>

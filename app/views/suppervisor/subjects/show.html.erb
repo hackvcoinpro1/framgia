@@ -1,0 +1,15 @@
+<% provide(:title, @subject.name) %>
+<div class="wrapper">
+  <h3 class="box-title name">
+    <%= @subject.name %>
+  </h3>
+  <section class="content">
+    <div class="col-md-9">
+      <%= render "component/task_component/box_task" %>
+    </div>
+    <div class="col-md-3">
+      <%= render "component/member_component/box_member" %>
+      <%= render "component/courses_component/box_course" %>
+    </div>
+  </section>
+</div>

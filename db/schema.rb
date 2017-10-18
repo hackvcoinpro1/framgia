@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012063115) do
+ActiveRecord::Schema.define(version: 20171017133354) do
 
   create_table "course_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "status"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20171012063115) do
     t.bigint "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
   end
 
