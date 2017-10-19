@@ -29,6 +29,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  public:
+    init: "init"
+    in_progress: "in_progress"
+    finish: "finish"
   layouts:
     application:
       title: "Framgia Training System"
@@ -97,6 +101,13 @@ en:
       another_sb: "Another Subjects"
       another_trainer: "Another Trainers"
       another_trainee: "Another trainees"
+    _subject:
+      in_progress: "Active"
+      finish: "Finish"
+    _status:
+      init : "Init"
+      in_progress: "InProgress"
+      finish: "Finish"
   tasks:
     task:
       text: "tasks"
@@ -191,8 +202,15 @@ en:
       flash_success_destroy: "Deleted Successful!"
       flash_success_update: "Update success"
       flash_danger_update: "Update unsuccess"
+      in_progress: "You can't delete a course have been actived"
     course_subjects:
       flash_danger: "Can't find"
+      flash_danger_update: "Update status unsuccess"
+      flash_success_update: "Update status Successful"
+      flash_danger_destroy: "Subject have been actived"
+      flash_success_create: "Add subject successful"
+      flash_danger_create: "Add subject unsuccessful"
+      un_in_progress: "Course haven't ready to in progress"
     user_courses:
       flash_danger_create: "Add user unsuccess"
       flash_danger_destroy: "Remove user unsuccess"

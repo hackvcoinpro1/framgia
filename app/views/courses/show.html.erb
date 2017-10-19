@@ -1,31 +1,24 @@
 <% provide :title, @course.name %>
 <div class="row">
   <h1><%= @course.name %></h1>
+  <%= render "courses/status_course" %>
   <h2><%= t("courses.show.desc") %><%= @course.description %></h2>
   <h2><%= t("courses.show.created") %><%= @course.created_at %></h2>
-  <table class="dtls-c">
-    <thead>
-      <th><%= t "courses.show.subjects" %></th>
-      <th><%= t "courses.show.trainees" %></th>
-      <th><%= t "courses.show.trainers" %></th>
-    </thead>
-    <td>
-      <ul class="ls-sub">
-        <%= render partial: "subject", collection: @subjects, as: :subject %>
-        <%= will_paginate @subjects %>
-      </ul>
-    </td>
-    <td>
-      <ul class="ls-sub">
-        <%= render partial: "user", collection: @trainees, as: :user %>
-        <%= will_paginate @trainees %>
-      </ul>
-    </td>
-    <td>
-      <ul class="ls-sub">
-        <%= render partial: "user", collection: @trainers, as: :user %>
-        <%= will_paginate @trainers %>
-      </ul>
-    </td>
-  </table>
+  <section class="content">
+    <div class="dscroll">
+      <div class="dbox-body">
+        <div class="col-md-9 col-list-subjects">
+          <div class="tab-pane timeline-container active clearfix" id="timeline">
+            <ul class="timeline timeline-inverse timeline-subject">
+              <%= render partial: "subject", collection: @subjects,
+                as: :subject %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 dsuser">
+      <%= render "component/member_component/box_member" %>
+    </div>
+  </section>
 </div>

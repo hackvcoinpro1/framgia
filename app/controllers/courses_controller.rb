@@ -28,10 +28,14 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    if @course.destroy
-      flash[:success] = t "controllers.courses.flash_success_destroy"
+    if @course.init?
+      if @course.destroy
+        flash[:success] = t "controllers.courses.flash_success_destroy"
+      else
+        flash[:danger] = t "controllers.courses.flash_danger_destroy"
+      end
     else
-      flash[:danger] = t "controllers.courses.flash_danger_destroy"
+      flash[:danger] = t "controllers.courses.in_progress"
     end
     redirect_to courses_path
   end
@@ -45,7 +49,7 @@ class CoursesController < ApplicationController
   def update
     if @course.update_attributes course_params
       flash[:success] = t "controllers.courses.flash_success_update"
-      redirect_to courses_path
+      redirect_to @course
     else
       flash[:danger] = t "controllers.courses.flash_danger_update"
       render :edit
@@ -75,7 +79,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :description)
+    params.require(:course).permit(:name, :description, :status)
   end
 
   def load_course

@@ -7,8 +7,10 @@ class Course < ApplicationRecord
   has_many :having_user, through: :user_courses, source: :user
   default_scope ->{order(created_at: :desc)}
 
-  def have subject
-    having << subject
+  enum status: [:init, :in_progress, :finish]
+
+  def have subject, date_start
+    course_subjects.create subject_id: subject.id, date_start: date_start
   end
 
   def unhave subject
