@@ -60,15 +60,31 @@ en:
       h1: "List Subjects"
       title: "Subjects"
     edit:
-      edit_subject: "Edit subject"
+      edit_subject: "edit"
       view_subject: "View detail"
+      title: "Edit subject"
+      btn_update: "Save changes"
+      box_title: "Subject information"
+      btn_finish_all: "Finish all courses"
+      btn_finish_one: "Finish this course"
+    update:
+      flash_success: "Update success"
+      flash_danger: "Update unsuccess"
     destroy:
       delete_success: "Subject deleted"
       delete_error: "Delete error."
       delete_link: "delete"
       confirm: "You sure?"
+      flash_error: "Delete error"
+      flash_danger: "Can't delete this subject , this subject was actived"
     show:
       flash_danger: "Subject not found"
+    new:
+      btn_add: "Add new subject"
+      title: "Create new subject"
+      h1: "Input new subject"
+      btn_create: "Create"
+      flash_success: "Create new subject success"
   courses:
     index:
       h1: "List Courses"
@@ -113,9 +129,20 @@ en:
       text: "tasks"
       box_title: "Tasks Overview"
     new:
+      title: "New task"
       btn_add: "Add quick task"
     destroy:
+      confirm: "Do you want delete this task?"
       btn_delete: "delete task"
+    danger:
+      danger_subjects: "Can't find subjects"
+      danger_add_task: "Add task fail !"
+      danger_delete_task: "Delete task fail , this task was actived!"
+    success:
+      success_update_task: "Task updated"
+    edit:
+      title: "Edit task"
+      btn_edit: "edit"
   static_pages:
     home:
       h1: "Hello"

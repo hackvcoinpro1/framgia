@@ -1,10 +1,14 @@
 class User < ApplicationRecord
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
+
   has_many :user_subjects, dependent: :destroy
-  has_many :having, through: :user_subjects, source: :subject
-  has_many :subjects, through: :user_subjects
-  has_many :user_task
+  has_many :course_subjects, through: :user_subjects
+  has_many :subjects, through: :course_subjects
+
+  has_many :user_tasks, through: :user_subjects
+  has_many :tasks, through: :user_tasks
+
   attr_accessor :remember_token
   before_save :downcase_email
 

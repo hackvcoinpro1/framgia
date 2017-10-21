@@ -18,9 +18,12 @@ Rails.application.routes.draw do
 
   resources :subjects, except: [:create, :destroy, :new]
 
+  resources :tasks, except: [:create, :destroy, :new]
+
   namespace :suppervisor do
     resources :users
     resources :subjects
+    resources :tasks
   end
 
   resources :courses
