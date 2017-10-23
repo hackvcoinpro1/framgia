@@ -3,6 +3,8 @@
   <%= form_for(@course.course_subjects.build) do |f| %>
     <div><%= hidden_field_tag :subject_id, subject.id %></div>
     <div><%= hidden_field_tag :course_id, @course.id %></div>
+    <%= f.label :date_start %>
+    <%= f.text_field :date_start, "data-provide" => 'datepicker' %>
     <%= f.submit t("courses._adding.add"), class: "btn btn-success" %>
   <% end %>
 </li>

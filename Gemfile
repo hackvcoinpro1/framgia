@@ -21,6 +21,7 @@ gem "jquery-rails"
 gem "bootstrap-sass", "3.3.7"
 gem "carrierwave"
 gem "mini_magick"
+gem 'bootstrap-datepicker-rails'
 group :development, :test do
   gem "mysql2", ">= 0.3.18", "< 0.5"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
