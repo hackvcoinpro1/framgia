@@ -5,7 +5,12 @@ class Course < ApplicationRecord
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses
   has_many :having_user, through: :user_courses, source: :user
-  default_scope ->{order(created_at: :desc)}
+
+  default_scope ->{order(name: :desc)}
+  scope :not_status_init, ->{where.not status: I18n.t("public.init")}
+
+  validates :name, presence: true, uniqueness: {case_sensitive: false}
+  validates :description, presence: true
 
   enum status: [:init, :in_progress, :finish]
 

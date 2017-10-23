@@ -1,9 +1,11 @@
 <li>
   <%= link_to subject.name, "#" %>
-  <%= form_for(@course.course_subjects.find_by(subject_id: subject.id),
-    html: { method: :delete }) do |f| %>
-    <div><%= hidden_field_tag :subject_id, subject.id %></div>
-    <div><%= hidden_field_tag :course_id, @course.id %></div>
-    <%= f.submit t("courses._added.remove"), class: "btn btn-danger" %>
+  <% unless @course.finish? %>
+    <%= form_for(@course.course_subjects.find_by(subject_id: subject.id),
+      html: { method: :delete }) do |f| %>
+      <div><%= hidden_field_tag :subject_id, subject.id %></div>
+      <div><%= hidden_field_tag :course_id, @course.id %></div>
+      <%= f.submit t("courses._added.remove"), class: "btn btn-danger" %>
+    <% end %>
   <% end %>
 </li>

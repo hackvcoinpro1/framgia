@@ -23,4 +23,11 @@ class ApplicationController < ActionController::Base
   def correct_user
     redirect_to(root_url) unless current_user? @user
   end
+
+  def course_finish
+    if @course.finish?
+      flash[:danger] = t "controllers.course_subjects.finish"
+      redirect_to @course
+    end
+  end
 end

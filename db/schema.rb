@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022080711) do
+ActiveRecord::Schema.define(version: 20171023113859) do
 
   create_table "course_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "status", default: 0
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171022080711) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
+    t.integer "status", default: 0
   end
 
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -50,11 +50,12 @@ ActiveRecord::Schema.define(version: 20171022080711) do
   end
 
   create_table "user_courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "user_id"
     t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id", "user_id"], name: "index_user_courses_on_course_id_and_user_id", unique: true
     t.index ["course_id"], name: "index_user_courses_on_course_id"
     t.index ["user_id"], name: "index_user_courses_on_user_id"
   end
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 20171022080711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_subject_id"], name: "index_user_subjects_on_course_subject_id"
+    t.index ["user_id", "course_subject_id"], name: "index_user_subjects_on_user_id_and_course_subject_id", unique: true
     t.index ["user_id"], name: "index_user_subjects_on_user_id"
   end
 
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 20171022080711) do
     t.bigint "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["task_id", "user_subject_id"], name: "index_user_tasks_on_task_id_and_user_subject_id", unique: true
     t.index ["task_id"], name: "index_user_tasks_on_task_id"
     t.index ["user_subject_id"], name: "index_user_tasks_on_user_subject_id"
   end
@@ -104,8 +107,8 @@ ActiveRecord::Schema.define(version: 20171022080711) do
   add_foreign_key "tasks", "subjects"
   add_foreign_key "user_courses", "courses"
   add_foreign_key "user_courses", "users"
-  add_foreign_key "user_subjects", "subjects", column: "course_subject_id"
+  add_foreign_key "user_subjects", "course_subjects"
   add_foreign_key "user_subjects", "users"
   add_foreign_key "user_tasks", "tasks"
-  add_foreign_key "user_tasks", "users", column: "user_subject_id"
+  add_foreign_key "user_tasks", "user_subjects"
 end

@@ -211,6 +211,12 @@ en:
       flash_success_create: "Add subject successful"
       flash_danger_create: "Add subject unsuccessful"
       un_in_progress: "Course haven't ready to in progress"
+      flash_success_destroy: "Remove subject success"
+      finish: "Course was finish, you can't do anything"
     user_courses:
       flash_danger_create: "Add user unsuccess"
       flash_danger_destroy: "Remove user unsuccess"
+      flash_exists: "User exists in course"
+      flash_success_create: "Add member to course success"
+      flash_success_destroy: "Remove member success"
+      user_inprogress: "User progressing in another course"

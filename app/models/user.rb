@@ -2,8 +2,7 @@ class User < ApplicationRecord
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
   has_many :user_subjects, dependent: :destroy
-  has_many :having, through: :user_subjects, source: :subject
-  has_many :subjects, through: :user_subjects
+  has_many :course_subjects, through: :user_subjects
   has_many :user_task
   attr_accessor :remember_token
   before_save :downcase_email
@@ -20,7 +19,7 @@ class User < ApplicationRecord
   scope :alphabet_name, ->{order :name}
   scope :without_suppervisor, ->{where suppervisor: nil}
   scope :with_suppervisor, ->{where suppervisor: true}
-  scope :without_course, ->(course){where.not id: course.user_ids}
+  scope :without_course, ->(course){where.not id: course.users.pluck(:id)}
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

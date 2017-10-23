@@ -1,6 +1,7 @@
 <% provide :title, @course.name %>
 <div class="row">
   <h1><%= @course.name %></h1>
+  <h2><%= link_to t(".edit"), edit_course_path(@course) %></h2>
   <%= render "courses/status_course" %>
   <h2><%= t("courses.show.desc") %><%= @course.description %></h2>
   <h2><%= t("courses.show.created") %><%= @course.created_at %></h2>
