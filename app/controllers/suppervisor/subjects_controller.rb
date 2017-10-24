@@ -2,8 +2,8 @@ class Suppervisor::SubjectsController < ApplicationController
   layout "suppervisor_layout"
   before_action :logged_in_user
   before_action :verify_suppervisor
-  before_action :load_subject, only: %i(show destroy)
-  before_action :load_courses, :load_trainers_trainees, :load_tasks, only: %i(show)
+  before_action :load_subject, except: %i(index new create)
+  before_action :load_courses, :load_trainers_trainees, :load_tasks, only: %i(show destroy edit)
 
   def index
     @subjects = Subject.paginate(page: params[:page], per_page: Settings.per_page.config)
@@ -11,32 +11,75 @@ class Suppervisor::SubjectsController < ApplicationController
 
   def show; end
 
-  def new; end
+  def new
+    @subject = Subject.new
+  end
 
-  def create; end
+  def create
+    @subject = Subject.new subject_params
+    if @subject.save
+      flash[:success] = t "subjects.new.flash_success"
+      redirect_to suppervisor_subjects_path
+    else
+      render :new
+    end
+  end
 
-  def destroy; end
+  def edit; end
+
+  def update
+    if @subject.update_attributes subject_params
+      flash[:success] = t "subjects.update.flash_success"
+      redirect_to request.referer
+    else
+      flash[:danger] = t "subjects.update.flash_danger"
+      render :edit
+    end
+  end
+
+  def destroy
+    course_subjects = @subject.course_subjects
+    if course_subjects.nil? || course_subjects.not_status_init.blank?
+      delete_subject
+    else
+      flash[:danger] = t "subjects.destroy.flash_danger"
+    end
+    redirect_to suppervisor_subjects_path
+  end
 
   private
 
+  def delete_subject
+    ActiveRecord::Base.transaction do
+      @subject.unhave_course @courses
+      Subject.destroy(@subject.id)
+    end
+    flash[:success] = t "subjects.destroy.delete_success"
+  rescue
+    flash[:error] = t "subjects.destroy.flash_error"
+  end
+
   def load_courses
-    @courses = @subject.courses.paginate(page: params[:page], per_page: Settings.per_page.config)
+    @courses = @subject.courses
+    @total_courses = @subject.courses.size
   end
 
   def load_trainers_trainees
-    @trainers = @subject.users.with_suppervisor.alphabet_name.paginate(page: params[:page],
-      per_page: Settings.per_page.config)
-    @trainees = @subject.users.without_suppervisor.alphabet_name.paginate(page: params[:page],
-      per_page: Settings.per_page.config)
+    @total_trainers = @subject.users.with_suppervisor.size
+    @total_trainees = @subject.users.without_suppervisor.size
+    @total_member = @subject.users.size
+    @trainers = @subject.users.with_suppervisor.alphabet_name
+    @trainees = @subject.users.without_suppervisor.alphabet_name
+    @member = @subject.users
   end
 
   def load_tasks
-    @tasks = @subject.task.alphabet_name.paginate(page: params[:page],
-      per_page: Settings.per_page.config)
+    @total_tasks = @subject.tasks.size
+    @tasks = @subject.tasks.alphabet_name
   end
 
   def subject_params
-    params.require(:subject).permit(:name, :description)
+    params.require(:subject).permit :name, :description
   end
 
   def load_subject

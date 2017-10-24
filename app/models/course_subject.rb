@@ -6,6 +6,8 @@ class CourseSubject < ApplicationRecord
   has_many :users, through: :user_subjects
   has_many :having, through: :user_subjects, source: :user
 
+  scope :not_status_init, ->{where.not status: :init}
+
   validates :course_id, presence: true
   validates :subject_id, presence: true
 

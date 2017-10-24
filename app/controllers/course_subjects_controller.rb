@@ -67,7 +67,7 @@ class CourseSubjectsController < ApplicationController
 
   def save_user_subject
     trainees = @course.users.without_suppervisor.pluck(:id)
-    tasks = @subject.task.pluck(:id)
+    tasks = @subject.tasks.pluck(:id)
     trainees.each do |id|
       @sb_user = @sb_course.have id
       tasks.each do |id_task|
@@ -79,7 +79,7 @@ class CourseSubjectsController < ApplicationController
   def finish_user_subject
     @sb_user = @sb_course.user_subjects
     @sb_user.each do |sbu|
-      sbu.finish_status
+      sbu.finish_user_subject
     end
   end
 end

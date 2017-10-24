@@ -1,18 +1,16 @@
 <div class="box">
   <div class="box-header with-border">
     <h3 class="box-title">
-      <%= t "users.member.member" %> : <%= total_member @trainers, @trainees %>
+      <%= t "users.member.member" %> : <%= @total_member %>
     </h3>
-    <div class="box-tools pull-right">
-    </div>
   </div>
   <div class="box-body">
-    <%= t "users.member.trainers" %> :  <%= @trainers.size %>
+    <%= t "users.member.trainers" %> :  <%= @total_trainers %>
     <%= render partial: "component/member_component/member_item", collection: @trainers, as: :user%>
   </div>
   <hr>
   <div class="box-body">
-    <%= t "users.member.trainee" %> : <%= @trainees.size %>
+    <%= t "users.member.trainee" %> : <%= @total_trainees %>
     <%= render partial: "component/member_component/member_item", collection: @trainees, as: :user%>
   </div>
 </div>

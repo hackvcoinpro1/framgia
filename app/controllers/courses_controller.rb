@@ -3,8 +3,14 @@ class CoursesController < ApplicationController
   before_action :verify_suppervisor, except: %i(show index)
   before_action :load_course, except: %i(new create index)
   before_action :course_finish, only: %i(update)
+
   def index
-    @courses = Course.paginate(page: params[:page], per_page: Settings.per_page.config)
+    if current_user.suppervisor?
+      @courses = Course.paginate(page: params[:page], per_page: Settings.per_page.config)
+    else
+      @courses = current_user.courses.paginate(page: params[:page],
+        per_page: Settings.per_page.config)
+    end
   end
 
   def show

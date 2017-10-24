@@ -49,7 +49,7 @@ class UserCoursesController < ApplicationController
 
   def check_user_inprogress
     return if @user.suppervisor?
-    if !@user.courses.nil? || !@user.courses.not_status_init.blank?
+    if !@user.courses.blank? || !@user.courses.not_status_init.blank?
       flash[:danger] = t "controllers.user_courses.user_inprogress"
       redirect_to edit_course_path(@course)
     end

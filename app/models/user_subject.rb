@@ -13,8 +13,7 @@ class UserSubject < ApplicationRecord
     user_tasks.create task_id: task_ids, status: I18n.t("public.init")
   end
 
-  def finish_status
+  def finish_user_subject
     update_attributes status: I18n.t("public.finish")
   end
-
 end

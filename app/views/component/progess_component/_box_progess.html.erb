@@ -1,0 +1,8 @@
+<div class="box">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%= t "user_task.progess.progess_title" %>
+    </h3>
+  </div>
+  <%= render partial: "component/progess_component/progess_item", collection: @trainees, as: :trainee%>
+</div>

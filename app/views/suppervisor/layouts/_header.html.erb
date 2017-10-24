@@ -3,7 +3,9 @@
     <%= link_to t("layouts._header.fts"), "#", id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to t("layouts._header.home"), root_path %></li>
         <% if logged_in? %>
+        <li><%= link_to t("static_pages.home.course"), courses_path %></li>
         <li><%= link_to t("layouts._header.users"), suppervisor_users_path %></li>
 	<li><%= link_to t("layouts._header.subjects"), suppervisor_subjects_path %></li>
         <li class="dropdown">
