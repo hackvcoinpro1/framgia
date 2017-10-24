@@ -3,7 +3,12 @@
   </span>
   <div class="info-box-content">
     <span class="info-box-text">
-      <%= task.name %>
+      <%= task.name %> :
+      <% if @status_subject == "init" %>
+        status init
+      <% else %>
+        <%= check_status_ut @user_subject, task.id %>
+      <% end %>
     </span>
     <div class="progress">
       <div class="progress-bar"></div>
@@ -11,9 +16,19 @@
     <span class="progress-description">
       <%= task.description %>
     </span>
-    <%= link_to t("tasks.destroy.btn_delete"), [:suppervisor, task], method: :delete,
-      data: { confirm: t("tasks.destroy.confirm") }, class: "label label-warning pull-right" %>
-    <%= link_to t("tasks.edit.btn_edit"), edit_suppervisor_task_path(task),
-      class: "label label-warning pull-right" %>
+    <% if current_user.suppervisor %>
+      <%= link_to t("tasks.destroy.btn_delete"), [:suppervisor, task], method: :delete,
+        data: { confirm: t("tasks.destroy.confirm") }, class: "label label-warning pull-right" %>
+      <%= link_to t("tasks.edit.btn_edit"), edit_suppervisor_task_path(task),
+        class: "label label-warning pull-right" %>
+    <% elsif @status_subject != "init" %>
+      <%= form_for (build_user_task @user_subject, task.id) do |f| %>
+        <% check_status_btn_ut @user_subject, task.id %>
+        <%= hidden_field_tag :user_subject_id, @user_subject.id %>
+        <%= hidden_field_tag :subject_id, @subject.id %>
+        <%= hidden_field_tag :status, @next_status %>
+        <%= f.submit t("courses._subject.#{@next_status}"), class: @btn_class %>
+      <% end %>
+    <% end %>
   </div>
 </div>

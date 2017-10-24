@@ -11,16 +11,26 @@
     <div class="subject-body clearfix">
       <div class="infor">
         <div>
-          <span class="subject-name"><%= link_to subject.name,
-            suppervisor_subject_path(subject) %></span>
+          <% if current_user.suppervisor %>
+            <span class="subject-name"><%= link_to subject.name,
+              suppervisor_subject_path(subject) %>
+            </span>
+          <% else %>
+            <%= form_tag subject_path(subject), method: :get do %>
+              <%= hidden_field_tag :course_id, @course.id %>
+              <%= submit_tag subject.name, class: "subject-name" %>
+            <% end %>
+          <% end %>
         </div>
         <i class="td-subject-description"><%= subject.description %></i>
-        <%= form_for (sub_of_course @course, subject) do |f| %>
-          <div><%= hidden_field_tag :subject_id, subject.id %></div>
-          <div><%= hidden_field_tag :course_id, @course.id %></div>
-          <% check_status_btn @cs %>
-          <div><%= hidden_field_tag :status, @next_status %></div>
-          <%= f.submit t("courses._subject.#{@next_status}"), class: @btn_class %>
+        <% if current_user.suppervisor %>
+          <%= form_for (sub_of_course @course, subject) do |f| %>
+            <div><%= hidden_field_tag :subject_id, subject.id %></div>
+            <div><%= hidden_field_tag :course_id, @course.id %></div>
+            <% check_status_btn @cs %>
+            <div><%= hidden_field_tag :status, @next_status %></div>
+            <%= f.submit t("courses._subject.#{@next_status}"), class: @btn_class %>
+          <% end %>
         <% end %>
       </div>
     </div>

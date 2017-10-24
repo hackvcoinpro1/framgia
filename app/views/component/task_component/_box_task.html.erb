@@ -5,12 +5,14 @@
     </h3>
   </div>
   <div class="box-header with-border">
+    <% if current_user.suppervisor %>
     <div class="col-md-3">
       <%= form_tag new_suppervisor_task_path, method: :get do %>
         <%= hidden_field_tag :subject_id, @subject.id %>
         <%= submit_tag t("tasks.new.btn_add"), class: "btn btn-block btn-primary" %>
       <% end %>
     </div>
+    <% end %>
   </div>
   <div class="box-body">
     <%= render partial: "component/task_component/task_item", collection: @tasks, as: :task%>

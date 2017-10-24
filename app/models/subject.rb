@@ -8,7 +8,7 @@ class Subject < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   default_scope ->{order(created_at: :desc)}
-  scope :without_course, ->(course){where.not id: course.subject_ids}
+  scope :without_course, ->(course){where.not id: course.subjects.pluck(:id)}
 
   def unhave_course course
     having_course.delete course

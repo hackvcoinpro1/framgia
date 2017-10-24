@@ -1,0 +1,8 @@
+<%= trainee.name %>
+<div class="progress">
+  <% check_progess trainee, @total_tasks, @course_subject %>
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= @progess %>%;">
+    <%= @progess %>
+    <%= t "user_task.progess.percent" %>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<% provide(:title, @subject.name) %>
+<section class="content">
+  <h3 class="box-title name">
+    <%= @subject.name %>
+  </h3>
+  <h3 class="box-title name">
+    <%= @status_subject %>
+  </h3>
+  <div class="col-md-9">
+    <%= render "component/progess_component/box_progess" %>
+  </div>
+  <div class="col-md-9">
+    <%= render "component/task_component/box_task" %>
+  </div>
+  <div class="col-md-3">
+    <%= render "component/member_component/box_member" %>
+  </div>
+</section>

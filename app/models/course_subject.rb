@@ -6,5 +6,5 @@ class CourseSubject < ApplicationRecord
 
   enum status: [:init, :in_progress, :finish]
 
-  scope :not_status_init, ->{where.not status: "init"}
+  scope :not_status_init, ->{where.not status: :init}
 end
