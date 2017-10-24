@@ -143,6 +143,15 @@ en:
     edit:
       title: "Edit task"
       btn_edit: "edit"
+  user_task:
+    update:
+      flash_success: "Update success"
+      flash_danger: "Update fail"
+    danger:
+      danger_load_task: "Load task fail"
+    progess:
+      progess_title: "Progess"
+      percent: "% Complete (success)"
   static_pages:
     home:
       h1: "Hello"

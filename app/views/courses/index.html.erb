@@ -1,6 +1,8 @@
 <% provide :title, t("courses.index.title") %>
 <h1><%= t ".h1" %></h1>
-<%= link_to t(".add_btn"), new_course_path, class: "btn btn-primary" %>
+<% if current_user.suppervisor %>
+  <%= link_to t(".add_btn"), new_course_path, class: "btn btn-primary" %>
+<% end %>
 <ul class="ls-all">
   <%= render @courses %>
 </ul>

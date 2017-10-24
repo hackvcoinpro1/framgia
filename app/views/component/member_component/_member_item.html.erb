@@ -1,5 +1,9 @@
 <hr>
 <p class="text-muted">
   <%= show_avatar_for user %>
-  <%= link_to user.name, suppervisor_user_path(user) %>
+  <% if current_user.suppervisor %>
+    <%= link_to user.name, suppervisor_user_path(user) %>
+  <% else %>
+    <%= link_to user.name, user_path(user) %>
+  <% end %>
 </p>

@@ -16,9 +16,11 @@ Rails.application.routes.draw do
 
   resources :users, except: [:create, :destroy, :new]
 
-  resources :subjects, except: [:create, :destroy, :new]
+  resources :subjects, only: [:show]
 
   resources :tasks, except: [:create, :destroy, :new]
+
+  resources :user_tasks
 
   namespace :suppervisor do
     resources :users
