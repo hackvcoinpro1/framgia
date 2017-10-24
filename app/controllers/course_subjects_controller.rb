@@ -41,6 +41,7 @@ class CourseSubjectsController < ApplicationController
     if @sb_course.save
       flash[:success] = t "controllers.course_subjects.flash_success_update"
       save_user_subject if @sb_course.in_progress?
+      finish_user_subject if @sb_course.finish?
     else
       flash[:danger] = t "controllers.course_subjects.flash_danger_update"
     end
@@ -72,6 +73,13 @@ class CourseSubjectsController < ApplicationController
       tasks.each do |id_task|
         @sb_user.have id_task
       end
+    end
+  end
+
+  def finish_user_subject
+    @sb_user = @sb_course.user_subjects
+    @sb_user.each do |sbu|
+      sbu.finish_status
     end
   end
 end
