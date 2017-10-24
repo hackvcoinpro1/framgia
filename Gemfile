@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-#ruby "2.3.4"
+ruby "2.3.4"
 gem "rails", "~> 5.1.4"
 gem "puma", "~> 3.7"
 gem "config"
@@ -29,7 +29,7 @@ group :development, :test do
   gem "selenium-webdriver"
 end
 group :production do
-  #gem "pg"
+  gem "pg"
 end
 group :development do
   gem "mysql2", ">= 0.3.18", "< 0.5"
