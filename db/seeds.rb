@@ -1,9 +1,5 @@
 User.create!(name: "Trainer1", email: "admin1@gmail.com", password: "123123",
   password_confirmation: "123123", suppervisor: true)
-User.create!(name: "Trainer2", email: "admin2@gmail.com", password: "123123",
-  password_confirmation: "123123", suppervisor: true)
-User.create!(name: "Trainer3", email: "admin3@gmail.com", password: "123123",
-  password_confirmation: "123123", suppervisor: true)
 
 1.upto(10) do |x|
   name = "Pham Van #{x}"
