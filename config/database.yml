@@ -80,3 +80,7 @@ test:
 #
 production:
   <<: *default
+  database: dcold4vv8b1iv8
+  user: cjskbhphpfpgdb
+  port: 5432
+  password: d6d068aeac821b236ff7e4b57107728098d78fba556a5197032316ce17536af1
